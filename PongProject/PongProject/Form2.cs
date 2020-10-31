@@ -16,7 +16,7 @@ namespace PongProject
         public int score1 = 0;
         public int score2 = 0;
         public int ballXSpeed = -5;
-        public int ballYSpeed = 5;
+        public int ballYSpeed = -5;
         public static PictureBox[] Player = new PictureBox[5];  
         public static PictureBox[] Enemy = new PictureBox[5];
         public bool GameRunning = false;
@@ -28,6 +28,8 @@ namespace PongProject
             InitializeComponent();
 
             this.KeyPreview = true;
+            label6.Visible = false;
+            label7.Visible = false;
         }
 
         public void score()
@@ -46,8 +48,6 @@ namespace PongProject
                 pictureBox3.Location = new Point(700, 300);
                 ballXSpeed = -5;
             }
-
-
         }
 
         public void SpeedUp()
@@ -68,6 +68,7 @@ namespace PongProject
                 return false;
             return true;
         }
+
         private void Form2_KeyDown(object sender, KeyEventArgs e)
        {
             int x = pictureBox1.Location.X;
@@ -98,9 +99,6 @@ namespace PongProject
                     y -= 10;
                     pictureBox1.Location = new Point(x, y);
                 }
-
-                
-
             }
             catch
             {
@@ -112,9 +110,7 @@ namespace PongProject
         {
             GameRunning = true;
             label1.Text = score1.ToString(); 
-            label2.Text = score2.ToString();
-            label4.Text = pictureBox3.Location.X.ToString();
-            label5.Text = pictureBox3.Location.Y.ToString();
+            label2.Text = score2.ToString();            
             timer2.Interval = 20;
             timer2.Tick += timer2_Tick;
             timer2.Start();
@@ -161,11 +157,15 @@ namespace PongProject
                 label6.Text = ballx.ToString();
                 label7.Text = bally.ToString();
 
-                if (pictureBox3.Location.X > 18 || pictureBox3.Location.Y < 468)
+                if (pictureBox3.Location.Y > 620)
                 {
                     ballYSpeed = -ballYSpeed;
                     pictureBox3.Location = new Point(ballx, bally);
-                }
+                }else if (pictureBox3.Location.Y < 15)
+                 {
+                    ballYSpeed = -ballYSpeed;
+                    pictureBox3.Location = new Point(ballx, bally);
+                 }
                 if (pictureBox3.Location.X > 1415)
                 {
                     ballXSpeed = -ballXSpeed;
