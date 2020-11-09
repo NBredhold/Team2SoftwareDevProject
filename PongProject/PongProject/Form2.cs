@@ -21,6 +21,7 @@ namespace PongProject
         public static PictureBox[] Enemy = new PictureBox[5];
         public bool GameRunning = false;
         int game = 0;
+        private readonly Random _random = new Random();
 
 
         public Form2()
@@ -55,7 +56,11 @@ namespace PongProject
             ballXSpeed = ballXSpeed < 0 ? ballXSpeed -= 1 : ballXSpeed += 1;
         }
 
-        
+        public int RandomNumber(int min, int max)
+        {
+            return _random.Next(min, max);
+        }
+
         private bool IsTouching(PictureBox p1, PictureBox p2)
         {
             if (p1.Location.X + p1.Width < p2.Location.X)
@@ -156,6 +161,7 @@ namespace PongProject
                 pictureBox3.Location = new Point(ballx, bally);
                 label6.Text = ballx.ToString();
                 label7.Text = bally.ToString();
+                label4.Text = ballYSpeed.ToString();
 
                 if (pictureBox3.Location.Y > 620)
                 {
@@ -180,7 +186,7 @@ namespace PongProject
                 }
                 if (IsTouching(pictureBox1, pictureBox3) == true || IsTouching(pictureBox2, pictureBox3) == true)
                 {
-                    ballYSpeed = -ballYSpeed;
+                    ballYSpeed = RandomNumber(-5 , 5);
                     ballXSpeed = -ballXSpeed;
                     pictureBox3.Location = new Point(ballx, bally);
                     SpeedUp();

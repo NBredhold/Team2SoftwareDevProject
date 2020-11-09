@@ -9,3 +9,4 @@ C:\Users\Nick\source\repos\PongProject\PongProject\obj\Debug\PongProject.exe
 C:\Users\Nick\source\repos\PongProject\PongProject\obj\Debug\PongProject.pdb
 C:\Users\Nick\source\repos\PongProject\PongProject\bin\Debug\PongProject.pdb
 C:\Users\Nick\source\repos\PongProject\PongProject\obj\Debug\PongProject.csproj.CoreCompileInputs.cache
+C:\Users\Nick\source\repos\PongProject\PongProject\obj\Debug\PongProject.csprojAssemblyReference.cache
