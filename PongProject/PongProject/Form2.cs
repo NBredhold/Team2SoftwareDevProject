@@ -152,6 +152,8 @@ namespace PongProject
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            int xx = pictureBox2.Location.X;
+            int yy = pictureBox2.Location.Y;
             if (GameRunning == true)
             {
                 int ballx = pictureBox3.Location.X;
@@ -190,6 +192,32 @@ namespace PongProject
                     ballXSpeed = -ballXSpeed;
                     pictureBox3.Location = new Point(ballx, bally);
                     SpeedUp();
+                }
+            }
+            if (Form1.medium == true)
+            {
+                if (pictureBox2.Location.Y > (18) && pictureBox2.Location.Y < 468)
+                {
+                    if (ballYSpeed > 0)
+                    {
+                        yy += ballYSpeed;
+                        pictureBox2.Location = new Point(xx, yy);
+                    }
+                    else if (ballYSpeed < 0)
+                    {
+                        yy -= -ballYSpeed;
+                        pictureBox2.Location = new Point(xx, yy);
+                    }
+                }
+                else if (pictureBox2.Location.Y < (18))
+                {
+                    yy += 10;
+                    pictureBox2.Location = new Point(xx, yy);
+                }
+                else if (pictureBox2.Location.Y > (460))
+                {
+                    yy -= 10;
+                    pictureBox2.Location = new Point(xx, yy);
                 }
             }
         }
