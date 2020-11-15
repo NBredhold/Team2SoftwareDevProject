@@ -16,6 +16,14 @@ namespace PongProject
         public Form3()
         {
             InitializeComponent();
+            Form2.scores.Sort();
+            Form2.scores.Reverse();
+            int highScore = Form2.scores.Max();
+            label2.Text = highScore.ToString();
+            /*foreach (int item in Form2.scores)
+            {
+                label2.Text = item.ToString();
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,6 +32,16 @@ namespace PongProject
             Form1 form1 = new Form1();
             form1.ShowDialog();
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

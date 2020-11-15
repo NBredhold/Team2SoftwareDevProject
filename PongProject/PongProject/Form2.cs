@@ -17,8 +17,7 @@ namespace PongProject
         public int score2 = 0;
         public int ballXSpeed = -5;
         public int ballYSpeed = -5;
-        public static PictureBox[] Player = new PictureBox[5];  
-        public static PictureBox[] Enemy = new PictureBox[5];
+        public static List<int> scores = new List<int>();
         public bool GameRunning = false;
         int game = 0;
         private readonly Random _random = new Random();
@@ -143,6 +142,8 @@ namespace PongProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int score = int.Parse(label1.Text);
+            scores.Add(score);
             GameRunning = false;
             this.Hide();
             Form1 form1 = new Form1();
@@ -194,7 +195,59 @@ namespace PongProject
                     SpeedUp();
                 }
             }
+            if (Form1.easy == true)
+            {
+                if (pictureBox2.Location.Y > (18) && pictureBox2.Location.Y < 468)
+                {
+                    if (ballYSpeed > 0)
+                    {
+                        yy += 5;
+                        pictureBox2.Location = new Point(xx, yy);
+                    }
+                    else if (ballYSpeed < 0)
+                    {
+                        yy -= 5;
+                        pictureBox2.Location = new Point(xx, yy);
+                    }
+                }
+                else if (pictureBox2.Location.Y < (22))
+                {
+                    yy += 10;
+                    pictureBox2.Location = new Point(xx, yy);
+                }
+                else if (pictureBox2.Location.Y > (460))
+                {
+                    yy -= 10;
+                    pictureBox2.Location = new Point(xx, yy);
+                }
+            }
             if (Form1.medium == true)
+            {
+                if (pictureBox2.Location.Y > (18) && pictureBox2.Location.Y < 468)
+                {
+                    if (ballYSpeed > 0)
+                    {
+                        yy += 2;
+                        pictureBox2.Location = new Point(xx, yy);
+                    }
+                    else if (ballYSpeed < 0)
+                    {
+                        yy -= 2;
+                        pictureBox2.Location = new Point(xx, yy);
+                    }
+                }
+                else if (pictureBox2.Location.Y < (22))
+                {
+                    yy += 10;
+                    pictureBox2.Location = new Point(xx, yy);
+                }
+                else if (pictureBox2.Location.Y > (460))
+                {
+                    yy -= 10;
+                    pictureBox2.Location = new Point(xx, yy);
+                }
+            }
+            if (Form1.hard == true)
             {
                 if (pictureBox2.Location.Y > (18) && pictureBox2.Location.Y < 468)
                 {
