@@ -262,7 +262,7 @@ namespace PongProject
                         pictureBox2.Location = new Point(xx, yy);
                     }
                 }
-                else if (pictureBox2.Location.Y < (18))
+                else if (pictureBox2.Location.Y < (22))
                 {
                     yy += 10;
                     pictureBox2.Location = new Point(xx, yy);

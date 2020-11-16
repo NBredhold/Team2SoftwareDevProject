@@ -16,14 +16,25 @@ namespace PongProject
         public Form3()
         {
             InitializeComponent();
-            Form2.scores.Sort();
-            Form2.scores.Reverse();
-            int highScore = Form2.scores.Max();
-            label2.Text = highScore.ToString();
-            /*foreach (int item in Form2.scores)
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+            try
             {
-                label2.Text = item.ToString();
-            }*/
+                Form2.scores.Sort();
+                Form2.scores.Reverse();
+                int highScore = Form2.scores.Max();
+                label2.Text = highScore.ToString();
+                /*foreach (int item in Form2.scores)
+                {
+                    label2.Text = item.ToString();
+                }*/
+            }
+            catch
+            {
+                
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
